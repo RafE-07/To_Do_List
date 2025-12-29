@@ -11,7 +11,7 @@
           Add a new task
         </div>
         <div class="p-4">
-          <form method="post" action="{% url 'add_task' %}">
+          <form method="post" action="{% url 'tasks:add_task' %}">
             {% csrf_token %}
             <div class="flex">
               <input
@@ -51,19 +51,19 @@
                 </div>
                 <div class="flex gap-2">
                   <a
-                    href="{% url 'toggle_task' task.id %}"
+                    href="{% url 'tasks:toggle_task' task.id %}"
                     class="text-sm border border-gray-300 text-gray-600 hover:bg-gray-100 px-3 py-1 rounded transition-colors"
                   >
                     {% if task.completed %}Mark as Incomplete{% else %}Mark as Complete{% endif %}
                   </a>
                   <a
-                    href="{% url 'edit_task' task.id %}"
+                    href="{% url 'tasks:edit_task' task.id %}"
                     class="text-sm border border-blue-500 text-blue-500 hover:bg-blue-50 px-3 py-1 rounded transition-colors"
                   >
                     Edit
                   </a>
                   <a
-                    href="{% url 'delete_task' task.id %}"
+                    href="{% url 'tasks:delete_task' task.id %}"
                     class="text-sm border border-red-500 text-red-500 hover:bg-red-50 px-3 py-1 rounded transition-colors"
                   >
                     Delete
@@ -82,4 +82,6 @@
     </div>
   </div>
 {% endblock %}
+
+
 
